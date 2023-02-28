@@ -1,0 +1,126 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs'
+    id 'kotlin-parcelize'
+}
+
+android {
+    compileSdkVersion versions.compileSdk
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.compileSdk
+        versionCode versions.versionCode
+        versionName versions.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    //BuildType has been added for illustrative purposes
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+            minifyEnabled false
+            shrinkResources false
+        }
+    }
+
+    //ProductFlavors has been added for illustrative purposes.
+    flavorDimensions "platform", "env"
+    productFlavors {
+        app {
+            dimension "platform"
+        }
+        live {
+            dimension "env"
+            applicationId "com.mehmetpetek.satellitedemo.app"
+            resValue "string", "app_name", "SatelliteApp"
+        }
+        dev {
+            dimension "env"
+            applicationId "com.mehmetpetek.satellitedemo.app.beta"
+            resValue "string", "app_name", "SatelliteApp - Beta"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+    configurations.all {
+        resolutionStrategy {
+            force 'org.jetbrains:annotations:20.1.0'
+        }
+    }
+}
+
+dependencies {
+    //Components
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin"
+    implementation "androidx.core:core-ktx:$versions.core"
+    implementation "androidx.fragment:fragment-ktx:$versions.fragment"
+    implementation "com.google.android.material:material:$versions.material"
+    implementation "androidx.constraintlayout:constraintlayout:$versions.constraint"
+    implementation "androidx.appcompat:appcompat:$versions.appcompat"
+    implementation "androidx.recyclerview:recyclerview:$versions.recyclerView"
+
+    //Lifecycle
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycle"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifecycle"
+
+    //Navigation Component
+    implementation "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
+    implementation "androidx.navigation:navigation-ui-ktx:$versions.navigation"
+
+    //Async Operations
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
+
+    //DI
+    implementation "com.google.dagger:hilt-android:$versions.hilt"
+    kapt "com.google.dagger:hilt-compiler:$versions.hilt"
+
+    //Room components
+    implementation "androidx.room:room-ktx:$versions.room"
+    kapt "androidx.room:room-compiler:$versions.room"
+    androidTestImplementation "androidx.room:room-testing:$versions.room"
+
+    //All Screen Design Support
+    implementation "com.intuit.sdp:sdp-android:$versions.sdp"
+
+    //MemoryLeak detect
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary"
+
+    //Gson
+    implementation "com.google.code.gson:gson:$versions.gson"
+
+    //UnitTest
+    testImplementation "junit:junit:$versions.junit"
+    testImplementation "io.mockk:mockk:$versions.mockk"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:$versions.mockito"
+    testImplementation "org.robolectric:robolectric:$versions.robolectric"
+    testImplementation "org.mockito:mockito-core:$versions.mockitoCore"
+    testImplementation "org.jetbrains.kotlin:kotlin-reflect:$versions.reflect"
+    testImplementation "androidx.arch.core:core-testing:$versions.coreTesting"
+    testImplementation "androidx.test:core:$versions.testCore"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.coroutines"
+    testImplementation "com.google.truth:truth:$versions.truth"
+}

@@ -1,0 +1,9 @@
+<resources>
+    <string name="no_data">No Data Found</string>
+    <string name="active">Active</string>
+    <string name="passive">Passive</string>
+
+    <string name="search_satellites">Search</string>
+
+    <string name="ok">OK</string>
+</resources>

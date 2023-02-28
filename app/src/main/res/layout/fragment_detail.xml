@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".ui.detail.DetailFragment">
+
+    <TextView
+        android:id="@+id/tv_satellite_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_11sdp"
+        android:text="Starship-1"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_17sdp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tv_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_16sdp"
+        android:text="01.12.2012"
+        android:textColor="@color/tv_color"
+        android:textSize="@dimen/_9sdp"
+        app:layout_constraintBottom_toTopOf="@+id/line"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_height_mass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line">
+
+        <TextView
+            android:id="@+id/tv_height_mass_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Height/Mass:"
+            android:textColor="@color/tv_color"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_height_mass_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="110/11350000"
+            android:textColor="@color/tv_color"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintStart_toEndOf="@+id/tv_height_mass_title"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_coast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_height_mass">
+
+        <TextView
+            android:id="@+id/tv_coast_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Coast:"
+            android:textColor="@color/tv_color"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_coast_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8.300.000"
+            android:textColor="@color/tv_color"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintStart_toEndOf="@+id/tv_coast_title"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_last_position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cl_coast">
+
+        <TextView
+            android:id="@+id/tv_last_position_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last Position:"
+            android:textColor="@color/tv_color"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_last_position_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(0.864,0.646445)"
+            android:textColor="@color/tv_color"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintStart_toEndOf="@+id/tv_last_position_title"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
